@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: linear-gradient(to right,pink,aqua);
+        }
+        .block{
+            width:400px;
+            height:150px;
+            margin:200px auto 40px;
+           padding:10px;
+           background-color:lightgray;
+        }
+        button{
+            width:160px;
+            height:30px;
+            margin:30px 30px 30px 110px;
+             background: linear-gradient(to right,pink,aqua);
+        }
+        p{
+            text-align:center;
+            margin:15px;
+            color:red;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div  class="block">
+        <p id="block"></p>
+        <button onclick="get_quote()">click to get quote</button>
+    </div>
+    <script>
+        const quotes=[
+            "The best way to predict the future is to create it.",
+            "Success is not final, failure is not fatal.",
+"Happiness depends upon ourselves.",
+"Dream big. Start small. Act now.",
+"Life is short. Smile while you still have teeth.",
+"You are not alone, and you are better than you think. ",
+"Faith loves the journey. Gratitude loves the moment. Inner peace loves the pause.",
+"Small steps motivate. Big steps overwhelm.",
+"Positivity always wins…Always.",
+"You can, you should, and if you’re brave enough to start, you will."
+    ];
+        function get_quote(){
+          const index=Math.floor(Math.random()*quotes.length);
+          document.getElementById("block").textContent=quotes[index];
+        }
+    </script>
+</body>
+</html>

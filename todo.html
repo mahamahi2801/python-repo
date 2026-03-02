@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>todo list</title>
+    <style>
+        body{
+            background: linear-gradient(to left,aqua,yellow);
+        }
+        .con{
+            width:400px;
+            margin:200px auto 40px;
+            border:2px solid black;
+            border-radius:8px;
+            background: white;
+            padding:20px;
+        }
+        h1{
+            text-align:center;
+            color:brown;
+        }
+        .main{
+            display:flex;
+            gap:0px;
+        
+        }
+        .main input{
+            flex:1;
+            width:270px;
+            height:28px;
+            margin:10px 0px 10px 10px;
+            border-radius:20px 0px 0px 20px;
+            border-right:none;
+        }
+        .main button{
+        width:50px;
+        height:34px;
+        margin:10px 10px 10px 0px ;
+        border:none;
+        border-radius: 0px 20px 20px 0px;
+        background: aqua;
+        }
+        ul{
+            list-style-type: none;
+        }
+        li.task{
+          width:300px;
+          display:flex;
+          margin:auto;
+          padding:5px;
+         justify-content: space-around;
+         
+        }
+        .delete{
+          width:50px;
+          height:25px;
+           margin-left:auto;
+           padding:5px;
+          background-color: lightgreen;
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1>Todo list</h1>
+        <div class="main">
+        <input type="text" id="textinput" placeholder=" enter a  task">
+        <button id="add">Add</button>
+        </div>
+        <ul id="tasklist"></ul>
+    </div>
+    <script>
+        document.getElementById('add').addEventListener('click',addtask);
+        function addtask(){
+            const inp=document.getElementById('textinput');
+            const inp_val=inp.value.trim();
+            if(inp_val ==="")
+            return;
+        const li=document.createElement('li');
+        li.className='task';
+        li.innerHTML=`<span>${inp_val}</span>
+        <button class="delete" onclick="delete_inp(this)">Delete</button>`;
+        document.getElementById('tasklist').appendChild(li);
+        inp.value="";
+    }
+        function delete_inp(data){
+            data.parentElement.remove();   
+        }
+    </script>
+</body>
+</html>
